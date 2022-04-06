@@ -38,7 +38,7 @@ optional arguments:
   -v, --verbose         verbose mode
 ```
 
-## mode: nes / ファイルの転送
+## mode: nes / nesファイルの転送
 
 ```
 fcdevuty nes-file-path
@@ -48,7 +48,7 @@ fcdevuty nes-file-path
 fcdevuty -m nes nes-file-path
 ```
 
-nes形式のファイルをFC開発機に転送します。転送出来る形式はFC開発機の制限により、mapper 0またはmapper 3のみとなります。それ以外のnesファイルを指定した場合の動作は不定です。
+nes形式のファイルをFC開発機に転送します。転送出来る形式はFC開発機の仕様により、mapper 0またはmapper 3のみとなります。それ以外のnesファイルを指定した場合の動作は不定です。
 
 ## mode: chr / CHR ROMの書き換え
 
@@ -66,18 +66,18 @@ fcdevuty -m chr -b 1 chr-file-path [chr-file-path2 ...]
 
 8kb単位で書き込み、8kbをオーバーした場合、次のバンクに書き込みます。
 
-32kbのファイルを指定する事で、4バンクに対して書き込みを行えます(が、チェックが甘いので動くかどうか不明です)。
+32kbのファイルを指定する事で、4バンクに対して書き込みを行えます。
 
 また、複数ファイルを指定した場合は、指定したファイルを全て連結した上で転送処理を行います。例えば4kbのファイル2つを指定すると、1バンクぶんのCHR ROMを書き換えます。
 
 ## mode: bin / EX RAMへの書き込みまたはPRG ROMへの書き込み
 
-例1: 指定ファイルを 0x6000 に書き込む
+例1: 指定ファイルをEX RAMの 0x6000 に書き込む
 ```
 fcdevuty -m bin file-path [file-path2 ...]
 ```
 
-例2: 指定ファイルを バンク1の 0x7000 から書き込む
+例2: 指定ファイルをEX RAMのバンク1の 0x7000 から書き込む
 ```
 fcdevuty -m bin -b 1 -a 0x7000 file-path [file-path2 ...]
 ```
@@ -95,7 +95,7 @@ EX RAMへの書き込みの場合、8kbを超えた場合は次のバンクに�
 
 アドレスを0x8000以降にする事でPRG ROMも書き換える事が出来ます
 
-## mode: read / メモリからデータを読み込みファイルに保存する
+## mode: read / メモリからデータを読み込み、ファイルに保存する
 
 ```
 fcdevuty -m read -a 0x6000 -s 0x2000 file-path
